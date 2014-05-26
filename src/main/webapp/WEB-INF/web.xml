@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app
+        version="2.5"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+
+    <servlet>
+        <servlet-name>file_uploaded</servlet-name>
+        <servlet-class>meu.teste.upload.BlobReaderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>file_uploaded</servlet-name>
+        <url-pattern>/readImage/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>file_url_upload</servlet-name>
+        <servlet-class>meu.teste.upload.UrlUpload</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>file_url_upload</servlet-name>
+        <url-pattern>/upurl</url-pattern>
+    </servlet-mapping>
+
+
+
+    <welcome-file-list>
+        <welcome-file>index2.html</welcome-file>
+    </welcome-file-list>
+</web-app>
