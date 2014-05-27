@@ -37,9 +37,23 @@ public class FileUpload extends HttpServlet {
             .totalRetryPeriodMillis(15000)
             .build());
 
+
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        oldMethod(req, res);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        newMethod(req, resp);
+    }
+
+    protected void newMethod(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+
+            Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(req);
+        List<BlobKey> blobKey = blobs.get("myFile");
+
+            if (blobKey == null) {
+                res.sendRedirect("/");
+            } else {
+                res.getWriter().print(blobKey.get(0).getKeyString());
+            }
     }
 
     private GcsFilename getFileName(HttpServletRequest req) {

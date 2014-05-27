@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"/>
+    <script src="js/angular-file-upload-shim.js"></script>
+    <script src="js/angular-file-upload.js"></script>
+    <script src="js/xupload.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Teste</title>
+</head>
+<body ng-app="fileUpload" ng-controller="MyCtrl">
+
+<input type="file" name="myFile" ng-file-select="onFileSelect($files)" onclick="this.value=null">
+
+<div ng-if="isLoaded">
+    <img ng-srcset="{{data}}" style="width:100px; height:100x;"/>
+</div>
+<button ng-if="isLoaded" ng-click="confirm()">Confirmar</button>
+
+</body>
+</html>

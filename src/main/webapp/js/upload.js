@@ -63,6 +63,7 @@ var MyCtrl = [ '$scope', '$http', '$timeout', '$upload',  function($scope, $http
 		$scope.progress[index] = 0;
 		$scope.errorMsg = null;
 		if ($scope.howToSend == 1) {
+		    console.log($scope.selectedFiles[index]);
 			$scope.upload[index] = $upload.upload({
 				url : uploadUrl,
 				method: $scope.httpMethod,

@@ -16,6 +16,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>uploaded</servlet-name>
+        <servlet-class>meu.teste.upload.FileUpload</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploaded</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>file_url_upload</servlet-name>
         <servlet-class>meu.teste.upload.UrlUpload</servlet-class>
     </servlet>
